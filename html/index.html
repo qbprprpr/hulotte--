@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <div class="site">
+        <div class="site-header">
+            <div class="site-title">
+                <img src="../img/logo-invisible.png" alt="logo">
+            </div>
+            <div class="header-menu">
+                <ul class="header-menu-main">
+                    <li>
+                        <a href="javascript:;">Top</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Story</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Characters</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Graphic</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Download</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Special</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Diary</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Spec</a>
+                    </li>
+                </ul>
+                <div class="header-menu-social"></div>
+            </div>
+        </div>
+        <div class="site-content">
+            <img class="char" id="char" src="../img/top-mainvisual-char.png" alt="">
+            <img class="bg" id="bg" src="../img/top-mainvisual-bg.png" alt="">
+        </div>
+        <div class="article-inner">
+            <section class="in-view">123</section>
+            <section class="in-view">321</section>
+        </div>
+        <div class="site-bg"></div>
+        <div class="site-loading" id="loading">
+            <ul class="loading-banner">
+                <li class="loading-bg loading-01">L</li>
+                <li class="loading-bg loading-02">O</li>
+                <li class="loading-bg loading-03">A</li>
+                <li class="loading-bg loading-04">D</li>
+                <li class="loading-bg loading-05">I</li>
+                <li class="loading-bg loading-06">N</li>
+                <li class="loading-bg loading-07">G</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script>
+    window.onload = function() {
+        // loading
+        let loading = document.querySelector('#loading');
+        // 单纯人物的bg
+        let charImg = document.querySelector('#char');
+        // 背景图bg
+        let bgImg = document.querySelector('#bg');
+        new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, 3500)
+        }).then(() => {
+            // 加载完成后，将loading取消
+            loading.classList.add('site-loading-hide');
+            loading.addEventListener('transitionend', function() {
+                charImg.classList.add('show');
+            })
+            charImg.addEventListener('transitionend', function() {
+                bgImg.classList.add('show');
+            })
+        })
+    }
+</script>
+</html>
