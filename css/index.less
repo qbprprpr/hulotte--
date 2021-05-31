@@ -3,12 +3,18 @@
     src: url(../fonts/BalooBhai-Regular.ttf);
 }
 
+@font-face {
+    font-family: 'MPLUSRounded1c-Regular';
+    src: url(../fonts/MPLUSRounded1c-Regular.ttf);
+}
+
 html {
     font-size: 24px;
 }
 
 .site {
     font-size: 0.875rem;
+    min-width: 1323px;
 
     .site-header {
         width: 100%;
@@ -118,9 +124,262 @@ html {
     }
 
     .article-inner {
-        margin-top: 1.5rem;
+        display: flex;
         padding: 0 1.5rem;
         max-width: 1323px;
+        margin: 1.5rem auto 0;
+        overflow: hidden;
+
+        section.in-view {
+            flex: 1;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            background: #fff;
+            box-shadow: rgb(16 16 16 / 15%) 0 0 5px;
+            transform: translateX(50%);
+            opacity: 0;
+            transition: all 0.8s;
+            transition-timing-function: cubic-bezier(.23,1,.32,1);
+        }
+    
+        section.in-view.in-view-show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        section:nth-child(2) {
+            margin-left: 2.5rem;
+        }
+
+        section > .in-view-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.2rem 0.5rem;
+            height: 1.5rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            color: #fff;
+        }
+
+        section > .in-view-title .left {
+            font-family: BalooBhai-Regular;
+        }
+
+        section > .in-view-title .right {
+            font-size: 0.66rem;
+            font-weight: bold;
+        }
+
+        section:nth-child(1) > .in-view-title {
+            background-image: linear-gradient(180deg, rgba(233,83,113, 1) 50%, rgba(233,83,113, 0.5) 50%);
+        }
+
+        section:nth-child(2) > .in-view-title {
+            background-image: linear-gradient(180deg, rgba(0,102,178, 1) 50%, rgba(0,102,178, 0.5) 50%);
+        }
+
+        section > .in-view-content {
+            height: 8rem;
+            overflow-y: scroll;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            background-image: linear-gradient(-45deg,transparent 25%, #f9f9f9 25%, #f9f9f9 50%, transparent 50%, transparent 75%, #f9f9f9 75%, #f9f9f9 100%);
+            background-size: 50px 50px;
+        }
+
+        section > .in-view-content ul {
+            padding: 0.6rem 0 0;
+        }
+
+        section > .in-view-content ul li{
+            padding: 0 0.6rem 0.6rem;
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+        }
+
+        .in-view-content ul li .time {
+            padding-bottom: 0.2rem;
+            font-size: 0.625rem;
+            color: #e95371;
+            font-weight: 700;
+        } 
+
+        .in-view-content ul li .box {
+            position: relative;
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            font-size: 0.75rem;
+        }
+        
+        .in-view-content ul li .box::after {
+            content: '√';
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .in-view-content ul li .circle {
+            width: 100%;
+            height: 0.6rem;
+            background-size: 0.5rem 0.5rem;
+            background-repeat: repeat-x;
+            background-image: radial-gradient(circle at 27% 0.37rem, #ddd 25%, transparent 25%);
+        } 
+
+    }
+
+    .plate {
+        display: flex;
+        max-width: 1323px;
+        margin: 1.5rem 0 0;
+        background: #dff1f0;
+        padding: 0 calc((100% - 1323px) / 2);
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-top: 0.45rem;
+            justify-content: space-between;
+        }
+
+        ul li {
+            width: calc(100% / 3 - 0.3rem);
+            border-radius: 0.5rem;
+            background: #ddd;
+            margin-bottom: 0.45rem;
+            perspective: 30rem;
+            transform: translateY(20%) scale(1) rotateY(90deg);
+        }
+
+        ul li.in-view-show {
+            transition: all 0.8s;
+            transform: translateY(0) rotateY(0) scale(1);
+            transition-timing-function: cubic-bezier(.23,1,.32,1);
+        }
+
+        ul li.in-view-show a {
+            display: block;
+            width: 100%;
+        }
+
+        ul li.in-view-show a:hover {
+            cursor: pointer;
+            transition: all 0.3s;
+            transform: scale(1.03);
+            transition-timing-function: cubic-bezier(.6, 2.29, .42, .37);
+        }
+
+        ul li.in-view-hide {
+            transition: all 0.3s;
+            transition-timing-function: cubic-bezier(.755,.05,.855,.06);
+        }
+
+        ul li.plate-delay:nth-child(1) {
+            transition-delay: 0s;
+        }
+        ul li.plate-delay:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+        ul li.plate-delay:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+        ul li.plate-delay:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+        ul li.plate-delay:nth-child(5) {
+            transition-delay: 0.4s;
+        }
+        ul li.plate-delay:nth-child(6) {
+            transition-delay: 0.5s;
+        }
+
+        ul li img {
+            display: block;
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+    }
+
+    // story模块
+    .story {
+        margin-top: 2.0rem;
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 2.5rem;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .title .eng {
+            position: absolute;
+            font-family: BalooBhai-Regular;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            color: #000;
+            opacity: 0.2;
+            transform: translateX(50%) scale(1.2);
+            transition: all 0.6s;
+        }
+        .title .eng.text-center {
+            opacity: 0.1;
+            transform: translateX(0) scale(1);
+        }
+
+        .title .chinese {
+            position: absolute;
+            padding-top: 3px;
+            letter-spacing: 11px;
+            text-indent: 11px;
+            font-weight: bold;
+            transform: translateX(-50%);
+            transition: all 1s;
+        }
+        .title .chinese.text-center {
+            transform: translateX(0);
+        }
+
+        .story-text {
+            overflow: hidden;
+            font-family: MPLUSRounded1c-Regular;
+            
+            p {
+                margin-top: 25px;
+                text-align: center;
+                opacity: 0;
+                transform: translateX(20%);
+                transition-timing-function: cubic-bezier(0,.85,0,1);
+                transition: 0.8s all;
+            }
+            p.show-block {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            .male {
+                color: #0066b2;
+                font-weight: 700;
+                font-style: initial;
+
+            }
+            .female {
+                color: #e95371;
+                font-weight: 700;
+                font-style: initial;
+            }
+            .idol {
+                color: #8a0;
+                font-weight: 700;
+                font-style: initial;
+            }
+            .m-t-30 {
+                margin-top: 30px;
+            }
+        }
     }
 
     .site-bg {
@@ -148,6 +407,7 @@ html {
         justify-content: center;
         align-items: center;
         background: #fff;
+        opacity: 1;
         z-index: 999;
 
         .loading-banner {
@@ -196,6 +456,7 @@ html {
     }
     .site-loading.site-loading-hide {
         transition: all 1s;
+        opacity: 0;
         transform: translateX(100%);
     }
 }
@@ -229,5 +490,15 @@ html {
     }
     100% {
         transform: rotate(-370deg) scale(0.6);
+    }
+}
+
+// in-view模块rotate变化
+@keyframes inview-rotate {
+    0% {
+        transform: rotateY(-90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
     }
 }
