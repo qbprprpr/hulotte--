@@ -142,7 +142,7 @@ html {
             transition-timing-function: cubic-bezier(.23,1,.32,1);
         }
     
-        section.in-view.in-view-show {
+        section.in-view.show-block {
             opacity: 1;
             transform: translateX(0);
         }
@@ -156,7 +156,6 @@ html {
             align-items: center;
             justify-content: space-between;
             padding: 0.2rem 0.5rem;
-            height: 1.5rem;
             border-top-left-radius: 0.5rem;
             border-top-right-radius: 0.5rem;
             color: #fff;
@@ -323,12 +322,12 @@ html {
             letter-spacing: 2px;
             color: #000;
             opacity: 0.2;
-            transform: translateX(50%) scale(1.2);
+            transform: scale(1.5);
             transition: all 0.6s;
         }
         .title .eng.text-center {
             opacity: 0.1;
-            transform: translateX(0) scale(1);
+            transform: scale(1);
         }
 
         .title .chinese {
@@ -338,7 +337,7 @@ html {
             text-indent: 11px;
             font-weight: bold;
             transform: translateX(-50%);
-            transition: all 1s;
+            transition: all 0.6s;
         }
         .title .chinese.text-center {
             transform: translateX(0);
@@ -379,6 +378,121 @@ html {
             .m-t-30 {
                 margin-top: 30px;
             }
+        }
+    }
+
+    // character模块
+    .character-inner {
+        padding: 0 1.5rem;
+        max-width: 1323px;
+        margin: 2.5rem auto 0;
+
+        margin-top: 2.0rem;
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 2.5rem;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .title .eng {
+            position: absolute;
+            font-family: BalooBhai-Regular;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            color: #000;
+            opacity: 0.2;
+            transform: scale(1.5);
+            transition: all 0.6s;
+        }
+        .title .eng.text-center {
+            opacity: 0.1;
+            transform: scale(1);
+        }
+
+        .title .chinese {
+            position: absolute;
+            padding-top: 3px;
+            letter-spacing: 11px;
+            text-indent: 11px;
+            font-weight: bold;
+            transform: translateX(-50%);
+            transition: all 0.6s;
+        }
+        .title .chinese.text-center {
+            transform: translateX(0);
+        }
+
+        .char-nav {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        .char-nav ul {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            min-height: 5rem;
+            overflow: hidden;
+        }
+
+        .char-nav ul li {
+            position: relative;
+            width: 5rem;
+            height: 5rem;
+        }
+        .char-nav ul li div {
+            position: absolute;
+            width: 5rem;
+            height: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: #ddd;
+        }
+        .char-nav ul li:nth-child(1) div.delay {
+            transition-delay: 0s;
+        }
+        .char-nav ul li:nth-child(2) div.delay {
+            transition-delay: 0.05s;
+        }
+        .char-nav ul li:nth-child(3) div.delay {
+            transition-delay: 0.10s;
+        }
+        .char-nav ul li:nth-child(4) div.delay {
+            transition-delay: 0.15s;
+        }
+        .char-nav ul li:nth-child(5) div.delay {
+            transition-delay: 0.20s;
+        }
+        .char-nav ul li:nth-child(6) div.delay {
+            transition-delay: 0.25s;
+        }
+        .char-nav ul li:nth-child(7) div.delay {
+            transition-delay: 0.30s;
+        }
+        .char-nav ul li:nth-child(8) div.delay {
+            transition-delay: 0.35s;
+        }
+        .char-nav ul li:nth-child(9) div.delay {
+            transition-delay: 0.40s;
+        }
+        .char-nav ul li div.show-block {
+            height: 5rem;
+            transition: all 0.5s;
+        }
+        .char-nav ul li div.hide-block {
+            transition: all 0.3s;
+        }
+
+        .char-content {
+            width: 100%;
+            margin-top: 2.5rem;
+            border-radius: 0.5rem;
+            min-height: 10rem;
+            background: #ddd;
         }
     }
 
