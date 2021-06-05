@@ -5,34 +5,29 @@ window.onload = function() {
     let charImg = document.querySelector('#char');
     // 背景图bg
     let bgImg = document.querySelector('#bg');
-    new Promise((resolve) => {
-        setTimeout(() => {
-            resolve();
-        }, 1000)
-    }).then(() => {
-        // 加载完成后，将loading取消
-        loading.classList.add('site-loading-hide');
-        // loading动画结束之后
-        loading.addEventListener('transitionend', function() {
-            // inview 展示
-            inViewTransition();
-            // plate 展示
-            plateTransition();
-            // storytitle 展示
-            stortyTitleTransition();
-            // storytext 展示
-            storyTextTransition();
-            // character title 展示
-            chaTitleTransition();
-            // character 展示
-            chaNavTransition();
-            // 纯背景图 展示
-            charImg.classList.add('show');
-        })
-        charImg.addEventListener('transitionend', function() {
-            bgImg.classList.add('show');
-        })
+    
+    // 加载完成后，将loading取消
+    loading.classList.add('site-loading-hide');
+    // loading动画结束之后
+    loading.addEventListener('transitionend', function() {
+        // inview 展示
+        inViewTransition();
+        // plate 展示
+        plateTransition();
+        // storytitle 展示
+        stortyTitleTransition();
+        // storytext 展示
+        storyTextTransition();
+        // character title 展示
+        chaTitleTransition();
+        // character 展示
+        chaNavTransition();
+        // 纯背景图 展示
+        // charImg.classList.add('show');
     })
+    // charImg.addEventListener('transitionend', function() {
+    //     bgImg.classList.add('show');
+    // })
 
     // 监听滚动条滚动
     window.addEventListener('scroll', () => {
