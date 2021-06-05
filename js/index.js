@@ -137,7 +137,7 @@ window.onload = function() {
     // 控制 character nav 模块的淡入淡出
     function chaNavTransition() {
         let charNav = getEle('#charNav');
-        let charNavLi = getEleAll('#charNav ul li div');
+        let charNavLi = getEleAll('#charNav ul li a');
         for (i = 0; i < charNavLi.length; i++) {
             elementInOut({
                 childEle: charNavLi[i],
@@ -172,7 +172,6 @@ window.onload = function() {
         let { childEle, cla, fatherEle, delayCla, fadeCla, limit } =  animeData;
         // 当前屏幕高度
         let screenClientHeight = document.documentElement.clientHeight;
-        console.log('screenClientHeight ->', screenClientHeight)
         // 滚动条的滚动距离
         let scrollTop = document.documentElement.scrollTop;
         // 计算滚动条的当前位置

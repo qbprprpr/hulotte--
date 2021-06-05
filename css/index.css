@@ -389,54 +389,151 @@ html {
   width: 5rem;
   height: 5rem;
 }
-.site .character-inner .char-nav ul li div {
+.site .character-inner .char-nav ul li a {
   position: absolute;
+  display: block;
   width: 5rem;
   height: 0;
   bottom: 0;
   border-radius: 50%;
-  background: #ddd;
 }
-.site .character-inner .char-nav ul li:nth-child(1) div.delay {
+.site .character-inner .char-nav ul li a img {
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+  background: #ddd;
+  opacity: 0.1;
+}
+.site .character-inner .char-nav ul li:nth-child(1) a.delay {
   transition-delay: 0s;
 }
-.site .character-inner .char-nav ul li:nth-child(2) div.delay {
+.site .character-inner .char-nav ul li:nth-child(2) a.delay {
   transition-delay: 0.05s;
 }
-.site .character-inner .char-nav ul li:nth-child(3) div.delay {
+.site .character-inner .char-nav ul li:nth-child(3) a.delay {
   transition-delay: 0.1s;
 }
-.site .character-inner .char-nav ul li:nth-child(4) div.delay {
+.site .character-inner .char-nav ul li:nth-child(4) a.delay {
   transition-delay: 0.15s;
 }
-.site .character-inner .char-nav ul li:nth-child(5) div.delay {
+.site .character-inner .char-nav ul li:nth-child(5) a.delay {
   transition-delay: 0.2s;
 }
-.site .character-inner .char-nav ul li:nth-child(6) div.delay {
+.site .character-inner .char-nav ul li:nth-child(6) a.delay {
   transition-delay: 0.25s;
 }
-.site .character-inner .char-nav ul li:nth-child(7) div.delay {
+.site .character-inner .char-nav ul li:nth-child(7) a.delay {
   transition-delay: 0.3s;
 }
-.site .character-inner .char-nav ul li:nth-child(8) div.delay {
+.site .character-inner .char-nav ul li:nth-child(8) a.delay {
   transition-delay: 0.35s;
 }
-.site .character-inner .char-nav ul li:nth-child(9) div.delay {
+.site .character-inner .char-nav ul li:nth-child(9) a.delay {
   transition-delay: 0.4s;
 }
-.site .character-inner .char-nav ul li div.show-block {
+.site .character-inner .char-nav ul li a.show-block {
   height: 5rem;
   transition: all 0.5s;
 }
-.site .character-inner .char-nav ul li div.hide-block {
+.site .character-inner .char-nav ul li a.hide-block {
   transition: all 0.3s;
 }
 .site .character-inner .char-content {
   width: 100%;
-  margin-top: 2.5rem;
-  border-radius: 0.5rem;
-  min-height: 10rem;
+  margin-top: 4rem;
+  border-radius: 1rem;
   background: #ddd;
+}
+.site .character-inner .char-content .banner {
+  padding-top: 1.5rem;
+}
+.site .character-inner .char-content .banner .tip {
+  text-align: center;
+}
+.site .character-inner .char-content .banner .bot {
+  display: flex;
+}
+.site .character-inner .char-content .banner .bot .left {
+  position: relative;
+  width: 30%;
+  padding-left: 2.4rem;
+}
+.site .character-inner .char-content .banner .bot .left .img-ban {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding-top: 213.3333%;
+}
+.site .character-inner .char-content .banner .bot .left .img-ban img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.1;
+}
+.site .character-inner .char-content .banner .bot .right {
+  flex: 1;
+  margin-top: 1.5rem;
+}
+.site .character-inner .char-content .banner .bot .right p:nth-child(1) {
+  font-size: 2rem;
+}
+.site .character-inner .char-content .banner .bot .right p:nth-child(2) {
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+.site .character-inner .char-content .banner .bot .right > span {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.1rem 2.8rem;
+  border-radius: 2rem;
+  background: #e95371;
+  color: #fff;
+}
+.site .character-inner .char-content .banner .bot .right .img ul li {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.site .character-inner .char-content .banner .bot .right .img ul li img {
+  display: block;
+  width: 100%;
+  opacity: 0.1;
+}
+.site .character-inner .char-content .banner .bot .right .coscume,
+.site .character-inner .char-content .banner .bot .right .voice {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.site .character-inner .char-content .banner .bot .right .coscume .voice,
+.site .character-inner .char-content .banner .bot .right .text {
+  display: flex;
+  width: 4.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.6rem 0.6rem 0.6rem 0;
+  font-size: 0.7rem;
+}
+.site .character-inner .char-content .banner .bot .right .coscume .voice,
+.site .character-inner .char-content .banner .bot .right .img ul {
+  display: flex;
+}
+.site .character-inner .char-content .banner .bot .right .coscume .voice,
+.site .character-inner .char-content .banner .bot .right .img ul li {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.site .character-inner .char-content .banner .bot .right .coscume .voice,
+.site .character-inner .char-content .banner .bot .right .img ul li img {
+  display: block;
+  width: 100%;
+  opacity: 0.1;
+  border-radius: 50%;
 }
 .site .site-bg {
   pointer-events: none;
@@ -449,7 +546,6 @@ html {
   background-image: linear-gradient(45deg, #f5f5f5 0, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5 100%), linear-gradient(45deg, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5 100%);
   background-position: 0 0,25px 25px;
   background-size: 50px 50px;
-  animation: body-bg 2s linear infinite;
   z-index: -1;
 }
 .site .site-loading {
