@@ -23,11 +23,11 @@ window.onload = function() {
         // character 展示
         chaNavTransition();
         // 纯背景图 展示
-        // charImg.classList.add('show');
+        charImg.classList.add('show');
     })
-    // charImg.addEventListener('transitionend', function() {
-    //     bgImg.classList.add('show');
-    // })
+    charImg.addEventListener('transitionend', function() {
+        bgImg.classList.add('show');
+    })
 
     // 监听滚动条滚动
     window.addEventListener('scroll', () => {

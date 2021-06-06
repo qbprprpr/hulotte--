@@ -401,8 +401,7 @@ html {
   display: block;
   width: 100%;
   border-radius: 50%;
-  background: #ddd;
-  opacity: 0.1;
+  background-color: #dff1f0;
 }
 .site .character-inner .char-nav ul li:nth-child(1) a.delay {
   transition-delay: 0s;
@@ -439,16 +438,19 @@ html {
   transition: all 0.3s;
 }
 .site .character-inner .char-content {
+  position: relative;
   width: 100%;
   margin-top: 4rem;
   border-radius: 1rem;
-  background: #ddd;
+  background-color: #dff1f0;
 }
 .site .character-inner .char-content .banner {
   padding-top: 1.5rem;
 }
 .site .character-inner .char-content .banner .tip {
   text-align: center;
+  color: #e95371;
+  font-weight: 700;
 }
 .site .character-inner .char-content .banner .bot {
   display: flex;
@@ -463,6 +465,7 @@ html {
   width: 100%;
   top: 0;
   left: 0;
+  transform: scale(1.4);
   padding-top: 213.3333%;
 }
 .site .character-inner .char-content .banner .bot .left .img-ban img {
@@ -471,25 +474,31 @@ html {
   top: 0;
   left: 0;
   width: 100%;
-  opacity: 0.1;
 }
 .site .character-inner .char-content .banner .bot .right {
   flex: 1;
   margin-top: 1.5rem;
+  z-index: 2;
 }
-.site .character-inner .char-content .banner .bot .right p:nth-child(1) {
+.site .character-inner .char-content .banner .bot .right > p:nth-child(1) {
   font-size: 2rem;
+  color: #214a48;
+  letter-spacing: 4px;
 }
-.site .character-inner .char-content .banner .bot .right p:nth-child(2) {
+.site .character-inner .char-content .banner .bot .right > p:nth-child(2) {
   font-size: 0.8rem;
-  margin-top: 0.3rem;
+  font-family: BalooBhai-Regular;
+  font-weight: 500;
+  color: #e95371;
 }
-.site .character-inner .char-content .banner .bot .right > span {
+.site .character-inner .char-content .banner .bot .right .name {
   margin-top: 1rem;
   display: inline-block;
-  padding: 0.1rem 2.8rem;
+  padding: 0.1rem 3.8rem;
   border-radius: 2rem;
   background: #e95371;
+  font-weight: 700;
+  font-family: MPLUSRounded1c-Regular;
   color: #fff;
 }
 .site .character-inner .char-content .banner .bot .right .img ul li {
@@ -500,13 +509,16 @@ html {
 .site .character-inner .char-content .banner .bot .right .img ul li img {
   display: block;
   width: 100%;
-  opacity: 0.1;
 }
-.site .character-inner .char-content .banner .bot .right .coscume,
-.site .character-inner .char-content .banner .bot .right .voice {
+.site .character-inner .char-content .banner .bot .right .coscume {
   display: flex;
   align-items: center;
   margin-top: 1rem;
+}
+.site .character-inner .char-content .banner .bot .right .voice {
+  display: flex;
+  align-items: center;
+  margin-top: 0.3rem;
 }
 .site .character-inner .char-content .banner .bot .right .coscume .voice,
 .site .character-inner .char-content .banner .bot .right .text {
@@ -516,6 +528,8 @@ html {
   justify-content: center;
   padding: 0.6rem 0.6rem 0.6rem 0;
   font-size: 0.7rem;
+  font-weight: 550;
+  color: #0066b2;
 }
 .site .character-inner .char-content .banner .bot .right .coscume .voice,
 .site .character-inner .char-content .banner .bot .right .img ul {
@@ -527,13 +541,58 @@ html {
   height: 2.5rem;
   border-radius: 50%;
   margin-right: 0.5rem;
+  background: #0066b2;
 }
 .site .character-inner .char-content .banner .bot .right .coscume .voice,
 .site .character-inner .char-content .banner .bot .right .img ul li img {
   display: block;
   width: 100%;
-  opacity: 0.1;
   border-radius: 50%;
+}
+.site .character-inner .char-content .banner .bot .right .status {
+  display: inline-block;
+  width: 15rem;
+  margin-top: 0.7rem;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  font-family: MPLUSRounded1c-Regular;
+  background: #fff;
+}
+.site .character-inner .char-content .banner .bot .right .status table {
+  width: 100%;
+}
+.site .character-inner .char-content .banner .bot .right .status table tr th {
+  width: 40%;
+  padding: 0.26rem 0.35rem;
+  text-align: right;
+  border-right: #e95371 1px solid;
+  font-weight: 550;
+  color: #e95371;
+}
+.site .character-inner .char-content .banner .bot .right .status table tr td {
+  width: 60%;
+  padding: 0.26rem 0.35rem;
+  text-align: left;
+  color: #214a48;
+}
+.site .character-inner .char-content .banner .bot .right .desc {
+  color: #214a48;
+  margin-bottom: 1.5rem;
+  font-size: 0.8125rem;
+}
+.site .character-inner .char-content .banner .bot .right .desc p {
+  margin-top: 0.8rem;
+}
+.site .character-inner .char-content .banner .bot .right .desc p:nth-child(1) {
+  margin-top: 1.2rem;
+}
+.site .character-inner .char-content .banner .bg {
+  position: absolute;
+  top: 0;
+  right: -15%;
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: 1;
 }
 .site .site-bg {
   pointer-events: none;
