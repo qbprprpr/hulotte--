@@ -11,7 +11,7 @@ html {
 }
 .site {
   font-size: 0.875rem;
-  min-width: 1323px;
+  min-width: 1232px;
 }
 .site .site-header {
   width: 100%;
@@ -112,7 +112,7 @@ html {
 .site .article-inner {
   display: flex;
   padding: 0 1.5rem;
-  max-width: 1323px;
+  max-width: 1232px;
   margin: 1.5rem auto 0;
   overflow: hidden;
 }
@@ -200,10 +200,10 @@ html {
 }
 .site .plate {
   display: flex;
-  max-width: 1323px;
+  max-width: 1232px;
   margin: 1.5rem 0 0;
   background: #dff1f0;
-  padding: 0 calc((100% - 1323px) / 2);
+  padding: 0 calc((100% - 1232px) / 2);
 }
 .site .plate ul {
   display: flex;
@@ -335,9 +335,8 @@ html {
 }
 .site .character-inner {
   padding: 0 1.5rem;
-  max-width: 1323px;
-  margin: 2.5rem auto 0;
-  margin-top: 2rem;
+  max-width: 1232px;
+  margin: 4rem auto 0;
 }
 .site .character-inner .title {
   display: flex;
@@ -375,7 +374,7 @@ html {
 }
 .site .character-inner .char-nav {
   width: 100%;
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
 }
 .site .character-inner .char-nav ul {
   display: flex;
@@ -437,10 +436,13 @@ html {
 .site .character-inner .char-nav ul li a.hide-block {
   transition: all 0.3s;
 }
+.site .character-inner .char-top {
+  overflow: hidden;
+}
 .site .character-inner .char-content {
   position: relative;
   width: 100%;
-  margin-top: 4rem;
+  margin-top: 4.5rem;
   border-radius: 1rem;
   background-color: #dff1f0;
 }
@@ -477,7 +479,7 @@ html {
 }
 .site .character-inner .char-content .banner .bot .right {
   flex: 1;
-  margin-top: 1.5rem;
+  margin-top: 1.4rem;
   z-index: 2;
 }
 .site .character-inner .char-content .banner .bot .right > p:nth-child(1) {
@@ -518,7 +520,6 @@ html {
 .site .character-inner .char-content .banner .bot .right .voice {
   display: flex;
   align-items: center;
-  margin-top: 0.3rem;
 }
 .site .character-inner .char-content .banner .bot .right .coscume .voice,
 .site .character-inner .char-content .banner .bot .right .text {
@@ -526,8 +527,8 @@ html {
   width: 4.5rem;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0.6rem 0.6rem 0.6rem 0;
-  font-size: 0.7rem;
+  padding: 0.6rem 0;
+  font-size: 0.675rem;
   font-weight: 550;
   color: #0066b2;
 }
@@ -563,7 +564,7 @@ html {
 }
 .site .character-inner .char-content .banner .bot .right .status table tr th {
   width: 40%;
-  padding: 0.26rem 0.35rem;
+  padding: 0.18rem 0.35rem;
   text-align: right;
   border-right: #e95371 1px solid;
   font-weight: 550;
@@ -571,7 +572,7 @@ html {
 }
 .site .character-inner .char-content .banner .bot .right .status table tr td {
   width: 60%;
-  padding: 0.26rem 0.35rem;
+  padding: 0.18rem 0.35rem;
   text-align: left;
   color: #214a48;
 }
@@ -588,10 +589,10 @@ html {
 }
 .site .character-inner .char-content .banner .bg {
   position: absolute;
-  top: 0;
-  right: -15%;
+  top: 7.5%;
+  right: -11%;
   border-radius: 50%;
-  opacity: 0.3;
+  opacity: 0.4;
   z-index: 1;
 }
 .site .site-bg {
@@ -605,6 +606,7 @@ html {
   background-image: linear-gradient(45deg, #f5f5f5 0, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5 100%), linear-gradient(45deg, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5 100%);
   background-position: 0 0,25px 25px;
   background-size: 50px 50px;
+  animation: body-bg 2s linear infinite;
   z-index: -1;
 }
 .site .site-loading {
