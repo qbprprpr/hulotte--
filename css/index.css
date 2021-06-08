@@ -8,6 +8,7 @@
 }
 html {
   font-size: 24px;
+  opacity: 0.1;
 }
 .site {
   font-size: 0.875rem;
@@ -476,6 +477,13 @@ html {
   top: 0;
   left: 0;
   width: 100%;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: 0.8s all;
+}
+.site .character-inner .char-content .banner .bot .left .img-ban img.show-block {
+  transform: translateY(0);
+  opacity: 1;
 }
 .site .character-inner .char-content .banner .bot .right {
   flex: 1;
@@ -538,11 +546,17 @@ html {
 }
 .site .character-inner .char-content .banner .bot .right .coscume .voice,
 .site .character-inner .char-content .banner .bot .right .img ul li {
+  position: relative;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
   margin-right: 0.5rem;
+  cursor: pointer;
   background: #0066b2;
+}
+.site .character-inner .char-content .banner .bot .right .coscume .voice,
+.site .character-inner .char-content .banner .bot .right .img ul li.active {
+  animation: coscume-img 0.7s infinite ease-in-out alternate;
 }
 .site .character-inner .char-content .banner .bot .right .coscume .voice,
 .site .character-inner .char-content .banner .bot .right .img ul li img {
@@ -590,10 +604,16 @@ html {
 .site .character-inner .char-content .banner .bg {
   position: absolute;
   top: 7.5%;
-  right: -11%;
+  right: -62.5%;
+  transform: rotate(180deg);
   border-radius: 50%;
   opacity: 0.4;
   z-index: 1;
+  transition: 0.8s all;
+}
+.site .character-inner .char-content .banner .bg.show-block {
+  right: -11%;
+  transform: rotate(0);
 }
 .site .site-bg {
   pointer-events: none;
@@ -698,5 +718,13 @@ html {
   }
   100% {
     transform: rotateY(0deg);
+  }
+}
+@keyframes coscume-img {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-0.5rem);
   }
 }

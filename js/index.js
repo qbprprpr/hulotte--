@@ -22,6 +22,7 @@ window.onload = function() {
         chaTitleTransition();
         // character 展示
         chaNavTransition();
+        chaContentTransition();
         // 纯背景图 展示
         charImg.classList.add('show');
     })
@@ -43,6 +44,8 @@ window.onload = function() {
         chaTitleTransition();
         // character nav 展示
         chaNavTransition();
+        // character content 展示
+        chaContentTransition();
     })
 
     // 控制 inView 模块的淡入淡出
@@ -138,15 +141,36 @@ window.onload = function() {
     function chaNavTransition() {
         let charNav = getEle('#charNav');
         let charNavLi = getEleAll('#charNav ul li a');
+        const LIMIT = Math.ceil(charNav.offsetHeight / 3);
         for (i = 0; i < charNavLi.length; i++) {
             elementInOut({
                 childEle: charNavLi[i],
                 cla: 'show-block',
                 fatherEle: charNav,
                 delayCla: 'delay',
-                fadeCla: 'hide-block'
+                fadeCla: 'hide-block',
+                limit: LIMIT,
             });
         }
+    }
+
+    // 控制 character content 模块的淡入淡出
+    function chaContentTransition() {
+        let charContent = getEle('#charContent');
+        let charContentBg = getEle('#charContent .bg');
+        let charImg = getEle('#charContent .img-ban img');
+        elementInOut({
+            childEle: charContentBg,
+            cla: 'show-block',
+            fatherEle: charContent,
+        });
+
+        elementInOut({
+            childEle: charImg,
+            cla: 'show-block',
+            fatherEle: charContent,
+            limit: 200
+        });
     }
 
     // 控制元素的淡入淡出 -- 公共方法

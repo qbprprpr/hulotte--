@@ -10,6 +10,7 @@
 
 html {
     font-size: 24px;
+    opacity: 0.1;
 }
 
 .site {
@@ -141,12 +142,12 @@ html {
             transition: all 0.8s;
             transition-timing-function: cubic-bezier(.23,1,.32,1);
         }
-    
+
         section.in-view.show-block {
             opacity: 1;
             transform: translateX(0);
         }
-        
+
         section:nth-child(2) {
             margin-left: 2.5rem;
         }
@@ -203,7 +204,7 @@ html {
             font-size: 0.625rem;
             color: #e95371;
             font-weight: 700;
-        } 
+        }
 
         .in-view-content ul li .box {
             position: relative;
@@ -211,7 +212,7 @@ html {
             padding-left: 1rem;
             font-size: 0.75rem;
         }
-        
+
         .in-view-content ul li .box::after {
             content: '√';
             position: absolute;
@@ -225,7 +226,7 @@ html {
             background-size: 0.5rem 0.5rem;
             background-repeat: repeat-x;
             background-image: radial-gradient(circle at 27% 0.37rem, #ddd 25%, transparent 25%);
-        } 
+        }
 
     }
 
@@ -346,7 +347,7 @@ html {
         .story-text {
             overflow: hidden;
             font-family: MPLUSRounded1c-Regular;
-            
+
             p {
                 margin-top: 25px;
                 text-align: center;
@@ -536,6 +537,13 @@ html {
                     top: 0;
                     left: 0;
                     width: 100%;
+                    transform: translateY(100%);
+                    opacity: 0;
+                    transition: 0.8s all;
+                }
+                .img-ban img.show-block {
+                    transform: translateY(0);
+                    opacity: 1;
                 }
             }
             .bot .right {
@@ -604,11 +612,17 @@ html {
                 }
 
                 .coscume .voice, .img ul li {
+                    position: relative;
                     width: 2.5rem;
                     height: 2.5rem;
                     border-radius: 50%;
                     margin-right: 0.5rem;
+                    cursor: pointer;
                     background: #0066b2;
+                }
+
+                .coscume .voice, .img ul li.active {
+                    animation: coscume-img 0.7s infinite ease-in-out alternate;
                 }
 
                 .coscume .voice, .img ul li img {
@@ -666,10 +680,17 @@ html {
             .bg {
                 position: absolute;
                 top: 7.5%;
-                right: -11%;
+                right: -62.5%;
+                transform: rotate(180deg);
                 border-radius: 50%;
                 opacity: 0.4;
                 z-index: 1;
+                transition: 0.8s all;
+            }
+
+            .bg.show-block {
+                right: -11%;
+                transform: rotate(0);
             }
 
         }
@@ -793,5 +814,15 @@ html {
     }
     100% {
         transform: rotateY(0deg);
+    }
+}
+
+// 服饰小图标的动画效果
+@keyframes coscume-img {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-0.5rem);
     }
 }
