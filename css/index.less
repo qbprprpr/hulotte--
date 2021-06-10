@@ -28,7 +28,7 @@ html {
         align-items: center;
         background-color: rgba(255, 255, 255, 0.8);
         box-shadow: rgb(16 16 16 / 15%) 0 0 4px;
-        z-index: 1;
+        z-index: 999;
 
         .site-title {
             width: 8rem;
@@ -513,6 +513,11 @@ html {
                 font-weight: 700;
             }
 
+            .tip.show-block {
+                animation: content-tip 0.8s;
+                animation-timing-function: cubic-bezier(.18,1,0,.81);
+            }
+
             .bot {
                 display: flex;
             }
@@ -637,8 +642,16 @@ html {
                     margin-top: 0.7rem;
                     padding: 0.4rem;
                     border-radius: 0.4rem;
+                    opacity: 0;
+                    transform: translateX(100%);
+                    transition: all 0.8s;
                     font-family: MPLUSRounded1c-Regular;
                     background: #fff;
+                }
+
+                .status.show-block {
+                    opacity: 1;
+                    transform: translateX(0);
                 }
 
                 .status table {
@@ -665,6 +678,9 @@ html {
                     color: #214a48;
                     margin-bottom: 1.5rem;
                     font-size: 0.8125rem;
+                    opacity: 0;
+                    transform: translateX(100%);
+                    transition: all 0.8s;
 
                     p {
                         margin-top: 0.8rem;
@@ -673,6 +689,11 @@ html {
                     p:nth-child(1) {
                         margin-top: 1.2rem;
                     }
+                }
+
+                .desc.show-block {
+                    opacity: 1;
+                    transform: translateX(0);
                 }
 
             }
@@ -817,9 +838,25 @@ html {
     }
 }
 
+// 人物tip的动画效果
+@keyframes content-tip {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 // 服饰小图标的动画效果
 @keyframes coscume-img {
     0% {
+        transform: translateY(0);
+    }
+    5% {
         transform: translateY(0);
     }
     100% {
