@@ -37,7 +37,7 @@ window.onload = function() {
     })
 
     // 监听滚动条滚动
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', throttle(150, () => {
         // inview 展示
         inViewTransition();
         // plate 展示
@@ -52,7 +52,7 @@ window.onload = function() {
         chaNavTransition();
         // character content 展示
         chaContentTransition();
-    })
+    }));
 
     // 控制 inView 模块的淡入淡出
     function inViewTransition() {
@@ -162,46 +162,63 @@ window.onload = function() {
 
     // 控制 character content 模块的淡入淡出
     function chaContentTransition() {
-        let charContent = getEle('#charContent');
-        let charContentBg = getEle('#charContent .bg');
-        let charImg = getEle('#charContent .img-ban img');
-        let charTip = getEle('#charContent .banner .tip');
+        let character01 = getEle('#character-01');
+        let characterBg = getEle('#character-01 .bg');
 
-        let desc = getEle('#charContent .desc');
-        let status = getEle('#charContent .status');
+        let standImages = getEle('#character-01 .stand-images img');
+        let words = getEle('#character-01 .words');
+        let name = getEle('#character-01 .name');
+        let controllButtons = getEle('#character-01 .controll-buttons');
+        let status = getEle('#character-01 .status');
+        let desc = getEle('#character-01 .desc');
         elementInOut({
-            childEle: charContentBg,
+            childEle: characterBg,
             cla: 'show-block',
-            fatherEle: charContent,
-        });
-
-        elementInOut({
-            childEle: charImg,
-            cla: 'show-block',
-            fatherEle: charContent,
+            fatherEle: character01,
             limit: 200
         });
 
         elementInOut({
-            childEle: charTip,
+            childEle: standImages,
             cla: 'show-block',
-            fatherEle: charContent,
+            fatherEle: character01,
             limit: 200
+        });
+
+        elementInOut({
+            childEle: words,
+            cla: 'show-block',
+            fatherEle: character01,
+            limit: 200
+        });
+
+        elementInOut({
+            childEle: name,
+            cla: 'show-block',
+            fatherEle: character01,
+            isAbsolute: true
+        });
+
+        elementInOut({
+            childEle: controllButtons,
+            cla: 'show-block',
+            fatherEle: character01,
+            isAbsolute: true
+        });
+
+        elementInOut({
+            childEle: status,
+            cla: 'show-block',
+            fatherEle: character01,
+            isAbsolute: true
         });
 
         elementInOut({
             childEle: desc,
             cla: 'show-block',
-            fatherEle: charContent,
+            fatherEle: character01,
             isAbsolute: true
-        })
-
-        elementInOut({
-            childEle: status,
-            cla: 'show-block',
-            fatherEle: charContent,
-            isAbsolute: true
-        })
+        });
     }
 
     /**
@@ -293,7 +310,62 @@ window.onload = function() {
     // 检测元素中是否含有某个class
     function hasClass(elem, cls) {
         cls = cls || '';
-        if(cls.replace(/\s/g, '').length == 0) return false;
+        if (cls.replace(/\s/g, '').length == 0) return false;
         return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');
     }
+}
+
+function throttle(delay, noTrailing, callback, debounceMode) {
+
+    // 定义一个空变量，将来用来存放定时器
+    var timeoutID;
+
+    // 定义一个空变量判断最新时间点，初始值为0，将来用来比对delay时间
+    var lastExec = 0;
+
+    if(typeof noTrailing !== 'boolean') {
+        debounceMode = callback;
+        callback = noTrailing;
+        noTrailing = undefined;
+    }
+
+    // 闭包
+    function wrapper() {
+        var self = this;
+        var elapsed = Number(new Date()) - lastExec;
+        var args = arguments;
+
+        // 执行 'callback' 函数并且更新最新的时间点
+        function exec() {
+            lastExec = Number(new Date());
+            callback.apply(self, args);
+        }
+
+        // 清空定时器
+        function clear() {
+            timeoutID = undefined;
+        }
+
+        // ？？？？
+        if (debounceMode && !timeoutID) {
+            exec();
+        }
+
+        // 如果存在定时器，则清除已有的定时器
+        if (timeoutID) {
+            clearTimeout(timeoutID);
+        }
+
+        // 如果 debounceMode 为 undefined 并且 elapsed 的值大于 delay
+        // 
+        if (debounceMode === undefined && elapsed > delay) {
+            // 初始化时触发该函数
+            exec();
+        } else if (noTrailing !== true) {
+            // 初始化完成后，判断条件一直处于该状态，lastExec的值不会再更新，因而elapsed的值则会一直增大，直到elapsed > delay
+            timeoutID = setTimeout(debounceMode ? clear : exec, debounceMode === undefined ? delay - elapsed : delay);
+        }
+    }
+
+    return wrapper;
 }

@@ -1,11 +1,13 @@
 @font-face {
     font-family: 'BalooBhai-Regular';
     src: url(../fonts/BalooBhai-Regular.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'MPLUSRounded1c-Regular';
     src: url(../fonts/MPLUSRounded1c-Regular.ttf);
+    font-display: swap;
 }
 
 html {
@@ -425,12 +427,12 @@ html {
             transform: translateX(0);
         }
 
-        .char-nav {
+        .character-nav {
             width: 100%;
             margin-top: 1.8rem;
         }
 
-        .char-nav ul {
+        .character-nav ul {
             display: flex;
             justify-content: space-between;
             position: relative;
@@ -438,12 +440,12 @@ html {
             overflow: hidden;
         }
 
-        .char-nav ul li {
+        .character-nav ul li {
             position: relative;
             width: 5rem;
             height: 5rem;
         }
-        .char-nav ul li a {
+        .character-nav ul li a {
             position: absolute;
             display: block;
             width: 5rem;
@@ -451,52 +453,52 @@ html {
             bottom: 0;
             border-radius: 50%;
         }
-        .char-nav ul li a img {
+        .character-nav ul li a img {
             display: block;
             width: 100%;
             border-radius: 50%;
             background-color: #dff1f0;
         }
-        .char-nav ul li:nth-child(1) a.delay {
+        .character-nav ul li:nth-child(1) a.delay {
             transition-delay: 0s;
         }
-        .char-nav ul li:nth-child(2) a.delay {
+        .character-nav ul li:nth-child(2) a.delay {
             transition-delay: 0.05s;
         }
-        .char-nav ul li:nth-child(3) a.delay {
+        .character-nav ul li:nth-child(3) a.delay {
             transition-delay: 0.10s;
         }
-        .char-nav ul li:nth-child(4) a.delay {
+        .character-nav ul li:nth-child(4) a.delay {
             transition-delay: 0.15s;
         }
-        .char-nav ul li:nth-child(5) a.delay {
+        .character-nav ul li:nth-child(5) a.delay {
             transition-delay: 0.20s;
         }
-        .char-nav ul li:nth-child(6) a.delay {
+        .character-nav ul li:nth-child(6) a.delay {
             transition-delay: 0.25s;
         }
-        .char-nav ul li:nth-child(7) a.delay {
+        .character-nav ul li:nth-child(7) a.delay {
             transition-delay: 0.30s;
         }
-        .char-nav ul li:nth-child(8) a.delay {
+        .character-nav ul li:nth-child(8) a.delay {
             transition-delay: 0.35s;
         }
-        .char-nav ul li:nth-child(9) a.delay {
+        .character-nav ul li:nth-child(9) a.delay {
             transition-delay: 0.40s;
         }
-        .char-nav ul li a.show-block {
+        .character-nav ul li a.show-block {
             height: 5rem;
             transition: all 0.5s;
         }
-        .char-nav ul li a.hide-block {
+        .character-nav ul li a.hide-block {
             transition: all 0.3s;
         }
 
-        .char-top {
+        .characters-banner {
             overflow: hidden;
         }
 
-        .char-content {
+        .characters-content {
             position: relative;
             width: 100%;
             margin-top: 4.5rem;
@@ -504,30 +506,30 @@ html {
             background-color: #dff1f0;
         }
 
-        .char-content .banner {
+        .characters-content .character-single {
             padding-top: 1.5rem;
 
-            .tip {
+            .words {
                 text-align: center;
                 color: #e95371;
                 font-weight: 700;
             }
 
-            .tip.show-block {
-                animation: content-tip 0.8s;
+            .words.show-block {
+                animation: content-words 0.8s;
                 animation-timing-function: cubic-bezier(.18,1,0,.81);
             }
 
-            .bot {
+            .cols {
                 display: flex;
             }
 
-            .bot .left {
+            .cols .left {
                 position: relative;
                 width: 30%;
                 padding-left: 2.4rem;
 
-                .img-ban {
+                .stand-images {
                     position: absolute;
                     width: 100%;
                     top: 0;
@@ -536,7 +538,7 @@ html {
                     padding-top: 213.3333%;
                 }
 
-                .img-ban img {
+                .stand-images img {
                     display: block;
                     position: absolute;
                     top: 0;
@@ -546,37 +548,49 @@ html {
                     opacity: 0;
                     transition: 0.8s all;
                 }
-                .img-ban img.show-block {
+                .stand-images img.show-block {
                     transform: translateY(0);
                     opacity: 1;
                 }
             }
-            .bot .right {
+            .cols .right {
                 flex: 1;
                 margin-top: 1.4rem;
                 z-index: 2;
 
-                > p:nth-child(1) {
-                    font-size: 2rem;
-                    color: #214a48;
-                    letter-spacing: 4px;
-                }
-                > p:nth-child(2) {
-                    font-size: 0.8rem;
-                    font-family: BalooBhai-Regular;
-                    font-weight: 500;
-                    color: #e95371;
-                }
                 .name {
-                    display: inline-block;
-                    margin-top: 1rem;
-                    display: inline-block;
-                    padding: 0.1rem 3.8rem;
-                    border-radius: 2rem;
-                    background: #e95371;
-                    font-weight: 700;
-                    font-family: MPLUSRounded1c-Regular;
-                    color: #fff;
+                    opacity: 0;
+                    transform: translateX(100%);
+                    transition: all 0.8s;
+
+                    > p:nth-child(1) {
+                        font-size: 2rem;
+                        color: #214a48;
+                        letter-spacing: 4px;
+                    }
+
+                    > p:nth-child(2) {
+                        font-size: 0.8rem;
+                        font-family: BalooBhai-Regular;
+                        font-weight: 500;
+                        color: #e95371;
+                    }
+
+                    .cv {
+                        display: inline-block;
+                        margin-top: 1rem;
+                        display: inline-block;
+                        padding: 0.1rem 3.8rem;
+                        border-radius: 2rem;
+                        background: #e95371;
+                        font-weight: 700;
+                        font-family: MPLUSRounded1c-Regular;
+                        color: #fff;
+                    }
+                }
+                .name.show-block {
+                    opacity: 1;
+                    transform: translateX(0);
                 }
 
                 .img ul li {
@@ -588,6 +602,16 @@ html {
                 .img ul li img {
                     display: block;
                     width: 100%;
+                }
+
+                .controll-buttons {
+                    opacity: 0;
+                    transform: translateX(100%);
+                    transition: all 0.8s;
+                }
+                .controll-buttons.show-block {
+                    opacity: 1;
+                    transform: translateX(0);
                 }
 
                 .coscume {
@@ -627,7 +651,7 @@ html {
                 }
 
                 .coscume .voice, .img ul li.active {
-                    animation: coscume-img 0.7s infinite ease-in-out alternate;
+                    animation: coscume-img 1s infinite ease-in-out alternate;
                 }
 
                 .coscume .voice, .img ul li img {
@@ -839,7 +863,7 @@ html {
 }
 
 // 人物tip的动画效果
-@keyframes content-tip {
+@keyframes content-words {
     0% {
         transform: scale(0);
     }
@@ -854,12 +878,9 @@ html {
 // 服饰小图标的动画效果
 @keyframes coscume-img {
     0% {
-        transform: translateY(0);
-    }
-    5% {
-        transform: translateY(0);
+        transform: translateY(0.23rem);
     }
     100% {
-        transform: translateY(-0.5rem);
+        transform: translateY(-0.23rem);
     }
 }

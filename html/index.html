@@ -208,7 +208,7 @@
                 <div class="eng">character</div>
                 <div class="chinese"><i style="color: #e95371;">人物</i>介绍</div>
             </div>
-            <div class="char-nav" id="charNav">
+            <div class="character-nav" id="charNav">
                 <ul>
                     <li>
                         <a class="delay">
@@ -257,58 +257,67 @@
                     </li>
                 </ul>
             </div>
-            <div class="char-top">
-                <div class="char-content" id="charContent">
-                    <div class="banner">
-                        <div class="tip">「私は兄さんに真っ当な人間になってもらいたいんです！」</div>
-                        <div class="bot">
+            <div class="characters-banner">
+                <div class="characters-content" id="character-01">
+                    <div class="character-single">
+                        <div class="words">「私は兄さんに真っ当な人間になってもらいたいんです！」</div>
+                        <div class="cols">
                             <div class="left">
-                                <div class="img-ban">
+                                <!-- 人物图展示 -->
+                                <div class="stand-images">
                                     <img src="../img/characters-stand-01-1.png" alt="">
                                 </div>
                             </div>
                             <div class="right">
-                                <p>待雪 <i style="color: #e95371; font-style: initial;">亜</i>芽</p>
-                                <p>matsuyuki ame</p>
-                                <div class="name">CV:白雪碧</div>
-                                <div class="coscume">
-                                    <div class="text">
-                                        <span>COSTUME</span>
-                                        <span>CHANGE</span>
+                                <!-- 名字信息 -->
+                                <div class="name">
+                                    <p>待雪 <i style="color: #e95371; font-style: initial;">亜</i>芽</p>
+                                    <p>matsuyuki ame</p>
+                                    <div class="cv">CV:白雪碧</div>
+                                </div>
+                                <div class="controll-buttons">
+                                    <!-- 服饰 -->
+                                    <div class="coscume">
+                                        <div class="text">
+                                            <span>COSTUME</span>
+                                            <span>CHANGE</span>
+                                        </div>
+                                        <div class="img">
+                                            <ul>
+                                                <li class="active">
+                                                    <img src="../img/characters-button-costume-01-1.png" alt="">
+                                                </li>
+                                                <li>
+                                                    <img src="../img/characters-button-costume-01-2.png" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="img">
-                                        <ul>
-                                            <li class="active">
-                                                <img src="../img/characters-button-costume-01-1.png" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="../img/characters-button-costume-01-2.png" alt="">
-                                            </li>
-                                        </ul>
+                                    <!-- 声音试听 -->
+                                    <div class="voice">
+                                        <div class="text">
+                                            <span>SAMPLE</span>
+                                            <span>VOICE</span>
+                                        </div>
+                                        <div class="img">
+                                            <ul>
+                                                <li>
+                                                    <img src="../img/characters-button-voice.png" alt="">
+                                                </li>
+                                                <li>
+                                                    <img src="../img/characters-button-voice.png" alt="">
+                                                </li>
+                                                <li>
+                                                    <img src="../img/characters-button-voice.png" alt="">
+                                                </li>
+                                                <li>
+                                                    <img src="../img/characters-button-voice.png" alt="">
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="voice">
-                                    <div class="text">
-                                        <span>SAMPLE</span>
-                                        <span>VOICE</span>
-                                    </div>
-                                    <div class="img">
-                                        <ul>
-                                            <li>
-                                                <img src="../img/characters-button-voice.png" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="../img/characters-button-voice.png" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="../img/characters-button-voice.png" alt="">
-                                            </li>
-                                            <li>
-                                                <img src="../img/characters-button-voice.png" alt="">
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <!-- 个人信息 -->
                                 <div class="status">
                                     <table>
                                         <tr>
@@ -329,6 +338,7 @@
                                         </tr>
                                     </table>
                                 </div>
+                                <!-- 个人描述 -->
                                 <div class="desc">
                                     <p>
                                         晴季の従姉妹でクラスメイト。霧の妹でもある。
