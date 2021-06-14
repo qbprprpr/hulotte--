@@ -162,63 +162,71 @@ window.onload = function() {
 
     // 控制 character content 模块的淡入淡出
     function chaContentTransition() {
-        let character01 = getEle('#character-01');
-        let characterBg = getEle('#character-01 .bg');
 
-        let standImages = getEle('#character-01 .stand-images img');
-        let words = getEle('#character-01 .words');
-        let name = getEle('#character-01 .name');
-        let controllButtons = getEle('#character-01 .controll-buttons');
-        let status = getEle('#character-01 .status');
-        let desc = getEle('#character-01 .desc');
-        elementInOut({
-            childEle: characterBg,
-            cla: 'show-block',
-            fatherEle: character01,
-            limit: 200
-        });
+        for (let i = 0; i < 9; i++) {
+            let character01 = getEle(`#character-0${i+1}`);
+            let characterBg = getEle(`#character-0${i+1} .bg`);
 
-        elementInOut({
-            childEle: standImages,
-            cla: 'show-block',
-            fatherEle: character01,
-            limit: 200
-        });
+            let standImages = getEle(`#character-0${i+1} .stand-images img`);
+            let words = getEle(`#character-0${i+1} .words`);
+            let name = getEle(`#character-0${i+1} .name`);
+            let controllButtons = getEle(`#character-0${i+1} .controll-buttons`);
+            let status = getEle(`#character-0${i+1} .status`);
+            let desc = getEle(`#character-0${i+1} .desc`);
+            elementInOut({
+                childEle: characterBg,
+                cla: 'show-block',
+                fatherEle: character01,
+                limit: 200
+            });
 
-        elementInOut({
-            childEle: words,
-            cla: 'show-block',
-            fatherEle: character01,
-            limit: 200
-        });
 
-        elementInOut({
-            childEle: name,
-            cla: 'show-block',
-            fatherEle: character01,
-            isAbsolute: true
-        });
+            standImages && elementInOut({
+                childEle: standImages,
+                cla: 'show-block',
+                fatherEle: character01,
+                limit: 200
+            });
 
-        elementInOut({
-            childEle: controllButtons,
-            cla: 'show-block',
-            fatherEle: character01,
-            isAbsolute: true
-        });
+            elementInOut({
+                childEle: words,
+                cla: 'show-block',
+                fatherEle: character01,
+                limit: 200
+            });
 
-        elementInOut({
-            childEle: status,
-            cla: 'show-block',
-            fatherEle: character01,
-            isAbsolute: true
-        });
+            elementInOut({
+                childEle: name,
+                cla: 'show-block',
+                fatherEle: character01,
+                limit: 200,
+                delayCla: 'delay-block'
+            });
 
-        elementInOut({
-            childEle: desc,
-            cla: 'show-block',
-            fatherEle: character01,
-            isAbsolute: true
-        });
+            controllButtons && elementInOut({
+                childEle: controllButtons,
+                cla: 'show-block',
+                fatherEle: character01,
+                limit: 200,
+                delayCla: 'delay-block'
+            });
+
+            elementInOut({
+                childEle: status,
+                cla: 'show-block',
+                fatherEle: character01,
+                limit: 200,
+                delayCla: 'delay-block'
+            });
+
+            elementInOut({
+                childEle: desc,
+                cla: 'show-block',
+                fatherEle: character01,
+                limit: 200,
+                delayCla: 'delay-block'
+            });
+        }
     }
 
     /**
