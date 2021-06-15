@@ -29,6 +29,8 @@ window.onload = function() {
         // character 展示
         chaNavTransition();
         chaContentTransition();
+        // graphic cg 展示
+        graphicTitleTransition();
         // 纯背景图 展示
         charImg.classList.add('show');
     })
@@ -52,6 +54,8 @@ window.onload = function() {
         chaNavTransition();
         // character content 展示
         chaContentTransition();
+        // graphic cg 展示
+        graphicTitleTransition();
     }));
 
     // 控制 inView 模块的淡入淡出
@@ -74,7 +78,7 @@ window.onload = function() {
         // 获取palte模块
         let plateFather = document.querySelector('#plate');
         let plateChilds = document.querySelectorAll('#plate li');
-        const LIMIT = Math.ceil(plate.offsetHeight / 4);
+        const LIMIT = Math.ceil(plateFather.offsetHeight / 4);
         for (let i = 0; i < plateChilds.length; i++) {
             elementInOut({
                 childEle: plateChilds[i],
@@ -226,6 +230,43 @@ window.onload = function() {
                 limit: 200,
                 delayCla: 'delay-block'
             });
+        }
+    }
+
+    // 控制 cg 模块淡入淡出
+    function graphicTitleTransition() {
+        let chaTitle = getEle('#graphicTitle');
+        let english = getEle('#graphicTitle .eng');
+        let chinese = getEle('#graphicTitle .chinese');
+        const LIMIT = Math.ceil(chaTitle.offsetHeight / 3);
+        // 英文大字
+        elementInOut({
+            childEle: english,
+            cla: 'text-center',
+            limit: LIMIT,
+            fatherEle: chaTitle
+        });
+        // 中文小字
+        elementInOut({
+            childEle: chinese,
+            cla: 'text-center',
+            limit: LIMIT,
+            fatherEle: chaTitle
+        });
+
+        // 获取palte模块
+        let plateFather = document.querySelector('#graphic #plates');
+        let plateChilds = document.querySelectorAll('#graphic #plates li');
+        const LIMITS = Math.ceil(plateFather.offsetHeight / 4);
+        for (let i = 0; i < plateChilds.length; i++) {
+            elementInOut({
+                childEle: plateChilds[i],
+                cla: 'in-view-show',
+                fatherEle: plateFather,
+                delayCla: 'plate-delay',
+                fadeCla: 'in-view-hide',
+                limit: LIMITS
+            })
         }
     }
 
