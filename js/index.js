@@ -31,6 +31,7 @@ window.onload = function() {
         chaContentTransition();
         // graphic cg 展示
         graphicTitleTransition();
+
         // 纯背景图 展示
         charImg.classList.add('show');
     })
@@ -57,6 +58,9 @@ window.onload = function() {
         // graphic cg 展示
         graphicTitleTransition();
     }));
+
+    const backtop = document.querySelector('#backtop');
+    backtop.addEventListener('click', scrollToTop)
 
     // 控制 inView 模块的淡入淡出
     function inViewTransition() {
@@ -364,6 +368,8 @@ window.onload = function() {
     }
 }
 
+
+// 节流函数
 function throttle(delay, noTrailing, callback, debounceMode) {
 
     // 定义一个空变量，将来用来存放定时器
@@ -395,7 +401,7 @@ function throttle(delay, noTrailing, callback, debounceMode) {
             timeoutID = undefined;
         }
 
-        // ？？？？
+        
         if (debounceMode && !timeoutID) {
             exec();
         }
@@ -406,7 +412,6 @@ function throttle(delay, noTrailing, callback, debounceMode) {
         }
 
         // 如果 debounceMode 为 undefined 并且 elapsed 的值大于 delay
-        // 
         if (debounceMode === undefined && elapsed > delay) {
             // 初始化时触发该函数
             exec();
@@ -418,3 +423,33 @@ function throttle(delay, noTrailing, callback, debounceMode) {
 
     return wrapper;
 }
+
+// 回到顶部 相关配置
+const cubic = value => Math.pow(value, 3);
+// js 缓动函数
+const easeInOutCubic = value => value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) *2) / 2;
+
+// backtop函数
+function scrollToTop() {
+    const currentEl = document.documentElement;
+    const berginTime = Date.now();
+    const beginValue = currentEl.scrollTop;
+    const rAF = (func => setTimeout(func, 16));
+    const frameFunc = () => {
+        /**
+         * berginTime在初始化完成后便不会再变化
+         * Date.now()每过16ms就会增大一次
+         * */ 
+        const progress = (Date.now() - berginTime) / 500;
+        if (progress < 1) {
+            currentEl.scrollTop = beginValue * (1 - easeInOutCubic(progress));
+            // 递归
+            rAF(frameFunc)
+        } else {
+            currentEl.scrollTop = 0;
+        }
+    }
+    // 初始化调用
+    rAF(frameFunc);
+}
+
