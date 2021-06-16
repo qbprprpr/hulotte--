@@ -12,7 +12,6 @@
 
 html {
     font-size: 24px;
-    opacity: 0.1;
 }
 
 .site {
@@ -262,6 +261,7 @@ html {
             width: 100%;
             margin-top: 0.45rem;
             justify-content: space-between;
+            perspective: 30rem;
         }
 
         ul li {
@@ -269,11 +269,12 @@ html {
             border-radius: 0.5rem;
             background: #ddd;
             margin-bottom: 0.45rem;
-            perspective: 30rem;
+            opacity: 0;
             transform: translateY(20%) scale(1) rotateY(90deg);
         }
 
         ul li.in-view-show {
+            opacity: 1;
             transition: all 0.8s;
             transform: translateY(0) rotateY(0) scale(1);
             transition-timing-function: cubic-bezier(.23,1,.32,1);
@@ -928,20 +929,22 @@ html {
                 display: flex;
                 flex-wrap: wrap;
                 width: 100%;
-                margin-top: 0.4rem;
+                margin-top: 0.45rem;
                 justify-content: space-between;
+                perspective: 30rem;
             }
     
             ul li {
-                width: calc(100% / 4 - 0.3rem);
+                width: calc(100% / 3 - 0.3rem);
                 border-radius: 0.5rem;
                 background: #ddd;
-                margin-bottom: 0.4rem;
-                perspective: 30rem;
+                margin-bottom: 0.45rem;
+                opacity: 0;
                 transform: translateY(20%) scale(1) rotateY(90deg);
             }
     
             ul li.in-view-show {
+                opacity: 1;
                 transition: all 0.8s;
                 transform: translateY(0) rotateY(0) scale(1);
                 transition-timing-function: cubic-bezier(.23,1,.32,1);
