@@ -12,7 +12,6 @@
 
 html {
     font-size: 24px;
-    opacity: 0.1;
 }
 
 .site {
@@ -934,21 +933,21 @@ html {
             padding: 0 1.5rem;
             margin-top: 1.5rem;
             padding: 0 calc((100% - 1232px) / 2);
+            background-color: #dff1f0;
     
             ul {
                 display: flex;
                 flex-wrap: wrap;
                 width: 100%;
-                margin-top: 0.45rem;
                 justify-content: space-between;
                 perspective: 30rem;
             }
     
             ul li {
-                width: calc(100% / 3 - 0.3rem);
+                width: calc((100% - 1.8rem) / 3);
                 border-radius: 0.5rem;
                 background: #ddd;
-                margin-bottom: 0.45rem;
+                margin: 0.3rem;
                 opacity: 0;
                 transform: translateY(20%) scale(1) rotateY(90deg);
             }
@@ -1074,6 +1073,63 @@ html {
             opacity: 1;
             transform: translateX(0);
         }
+
+        .banner-list-area {
+            display: flex;
+            max-width: 1232px;
+            padding: 0 1.5rem;
+            margin-top: 1.5rem;
+            padding: 0 calc((100% - 1232px) / 2);
+            background-color: #dff1f0;
+    
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                justify-content: center;
+                perspective: 30rem;
+            }
+    
+            ul li {
+                width: calc((100% - 1.8rem) / 3);
+                border-radius: 0.5rem;
+                margin: 0.3rem;
+                opacity: 0;
+                transform: translateY(20%) scale(1) rotateY(90deg);
+                background: #ddd;
+            }
+    
+            ul li.in-view-show {
+                opacity: 1;
+                transition: all 0.8s;
+                transform: translateY(0) rotateY(0) scale(1);
+                transition-timing-function: cubic-bezier(.23,1,.32,1);
+            }
+    
+            ul li.in-view-show a {
+                cursor: default;
+                display: block;
+                width: 100%;
+            }
+    
+            ul li.in-view-show a:hover {
+                cursor: pointer;
+                transition: all 0.3s;
+                transform: scale(1.03);
+                transition-timing-function: cubic-bezier(.6, 2.29, .42, .37);
+            }
+    
+            ul li.in-view-hide {
+                transition: all 0.3s;
+                transition-timing-function: cubic-bezier(.755,.05,.855,.06);
+            }
+
+            ul li img {
+                display: block;
+                width: 100%;
+                border-radius: 0.5rem;
+            }
+        }
     }
 
     .site-bg {
@@ -1156,12 +1212,10 @@ html {
 
     .backtop {
         position: fixed;
-        bottom: 1rem;
-        right: 1rem;
-        width: 3rem;
-        height: 3rem;
+        bottom: 0.6rem;
+        right: 0;
         border-radius: 0.6rem;
-        background-color: #0066b2;
+        z-index: 9;
     }
     .backtop:hover {
         cursor: pointer;

@@ -31,6 +31,8 @@ window.onload = function() {
         chaContentTransition();
         // graphic cg 展示
         graphicTitleTransition();
+        // download 展示
+        downloadTransition();
 
         // 纯背景图 展示
         charImg.classList.add('show');
@@ -57,6 +59,8 @@ window.onload = function() {
         chaContentTransition();
         // graphic cg 展示
         graphicTitleTransition();
+        // download 展示
+        downloadTransition();
     }));
 
     const backtop = document.querySelector('#backtop');
@@ -261,13 +265,49 @@ window.onload = function() {
         // 获取palte模块
         let plateFather = document.querySelector('#graphic #plates');
         let plateChilds = document.querySelectorAll('#graphic #plates li');
-        const LIMITS = Math.ceil(plateFather.offsetHeight / 4);
+        const LIMITS = Math.ceil(plateFather.offsetHeight / 6);
         for (let i = 0; i < plateChilds.length; i++) {
             elementInOut({
                 childEle: plateChilds[i],
                 cla: 'in-view-show',
                 fatherEle: plateFather,
                 delayCla: 'plate-delay',
+                fadeCla: 'in-view-hide',
+                limit: LIMITS
+            })
+        }
+    }
+
+    // 控制 download 模块的淡入淡出
+    function downloadTransition() {
+        let downloadTitle = getEle('#downloadTitle');
+        let english = getEle('#downloadTitle .eng');
+        let chinese = getEle('#downloadTitle .chinese');
+        const LIMIT = Math.ceil(downloadTitle.offsetHeight / 3);
+        // 英文大字
+        elementInOut({
+            childEle: english,
+            cla: 'text-center',
+            limit: LIMIT,
+            fatherEle: downloadTitle
+        });
+        // 中文小字
+        elementInOut({
+            childEle: chinese,
+            cla: 'text-center',
+            limit: LIMIT,
+            fatherEle: downloadTitle
+        });
+
+        // 获取palte模块
+        let downloadFather = document.querySelector('#download .banner-list-area');
+        let downloadChilds = document.querySelectorAll('#download .banner-list-area li');
+        const LIMITS = Math.ceil(downloadFather.offsetHeight / 6);
+        for (let i = 0; i < downloadChilds.length; i++) {
+            elementInOut({
+                childEle: downloadChilds[i],
+                cla: 'in-view-show',
+                fatherEle: downloadFather,
                 fadeCla: 'in-view-hide',
                 limit: LIMITS
             })
