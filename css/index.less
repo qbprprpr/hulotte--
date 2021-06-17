@@ -12,6 +12,7 @@
 
 html {
     font-size: 24px;
+    opacity: 0.1;
 }
 
 .site {
@@ -1132,6 +1133,125 @@ html {
         }
     }
 
+    // special模块
+    .special {
+        margin-top: 3.8rem;
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 2.5rem;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .title .eng {
+            position: absolute;
+            font-family: BalooBhai-Regular;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            color: #000;
+            opacity: 0;
+            transform: scale(1.5);
+            transition: all 0.6s;
+        }
+        .title .eng.text-center {
+            opacity: 0.1;
+            transform: scale(1);
+        }
+
+        .title .chinese {
+            position: absolute;
+            padding-top: 3px;
+            letter-spacing: 11px;
+            text-indent: 11px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateX(-50%);
+            transition: all 0.6s;
+        }
+        .title .chinese.text-center {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .banner-list-area {
+            display: flex;
+            max-width: 1232px;
+            margin-top: 1.5rem;
+            padding: 0 calc((100% - 1232px) / 2);
+            background-color: #dff1f0;
+    
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                justify-content: center;
+                perspective: 30rem;
+            }
+    
+            ul li {
+                width: calc((100% - 1.8rem) / 3);
+                border-radius: 0.5rem;
+                margin: 0.3rem;
+                opacity: 0;
+                transform: translateY(20%) scale(1) rotateY(90deg);
+                background: #ddd;
+            }
+    
+            ul li.in-view-show {
+                opacity: 1;
+                transition: all 0.8s;
+                transform: translateY(0) rotateY(0) scale(1);
+                transition-timing-function: cubic-bezier(.23,1,.32,1);
+            }
+    
+            ul li.in-view-show a {
+                cursor: default;
+                display: block;
+                width: 100%;
+            }
+    
+            ul li.in-view-show a:hover {
+                cursor: pointer;
+                transition: all 0.3s;
+                transform: scale(1.03);
+                transition-timing-function: cubic-bezier(.6, 2.29, .42, .37);
+            }
+    
+            ul li.in-view-hide {
+                transition: all 0.3s;
+                transition-timing-function: cubic-bezier(.755,.05,.855,.06);
+            }
+
+            ul li.plate-delay:nth-child(1) {
+                transition-delay: 0s;
+            }
+            ul li.plate-delay:nth-child(2) {
+                transition-delay: 0.1s;
+            }
+            ul li.plate-delay:nth-child(3) {
+                transition-delay: 0.2s;
+            }
+            ul li.plate-delay:nth-child(4) {
+                transition-delay: 0.3s;
+            }
+            ul li.plate-delay:nth-child(5) {
+                transition-delay: 0.4s;
+            }
+            ul li.plate-delay:nth-child(6) {
+                transition-delay: 0.5s;
+            }
+
+            ul li img {
+                display: block;
+                width: 100%;
+                border-radius: 0.5rem;
+            }
+        }
+    }
+
     .site-bg {
         pointer-events: none;
         position: fixed;
@@ -1213,9 +1333,13 @@ html {
     .backtop {
         position: fixed;
         bottom: 0.6rem;
-        right: 0;
+        right: -10rem;
         border-radius: 0.6rem;
         z-index: 9;
+        transition: all 0.8s;
+    }
+    .backtop.in-view-show {
+        right: -0.8rem;
     }
     .backtop:hover {
         cursor: pointer;

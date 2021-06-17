@@ -33,6 +33,10 @@ window.onload = function() {
         graphicTitleTransition();
         // download 展示
         downloadTransition();
+        // special 展示
+        specialTransition();
+        // backtop 展示
+        backtopTransition();
 
         // 纯背景图 展示
         charImg.classList.add('show');
@@ -61,10 +65,14 @@ window.onload = function() {
         graphicTitleTransition();
         // download 展示
         downloadTransition();
+        // special 展示
+        specialTransition();
+        // backtop 展示
+        backtopTransition();
     }));
 
     const backtop = document.querySelector('#backtop');
-    backtop.addEventListener('click', scrollToTop)
+    backtop.addEventListener('click', scrollToTop);
 
     // 控制 inView 模块的淡入淡出
     function inViewTransition() {
@@ -262,7 +270,7 @@ window.onload = function() {
             fatherEle: chaTitle
         });
 
-        // 获取palte模块
+        // 获取banner模块
         let plateFather = document.querySelector('#graphic #plates');
         let plateChilds = document.querySelectorAll('#graphic #plates li');
         const LIMITS = Math.ceil(plateFather.offsetHeight / 6);
@@ -299,7 +307,7 @@ window.onload = function() {
             fatherEle: downloadTitle
         });
 
-        // 获取palte模块
+        // 获取banner模块
         let downloadFather = document.querySelector('#download .banner-list-area');
         let downloadChilds = document.querySelectorAll('#download .banner-list-area li');
         const LIMITS = Math.ceil(downloadFather.offsetHeight / 6);
@@ -311,6 +319,56 @@ window.onload = function() {
                 fadeCla: 'in-view-hide',
                 limit: LIMITS
             })
+        }
+    }
+
+    // 控制 special 模块的淡入淡出
+    function specialTransition() {
+        let specialTitle = getEle('#specialTitle');
+        let english = getEle('#specialTitle .eng');
+        let chinese = getEle('#specialTitle .chinese');
+        const LIMIT = Math.ceil(specialTitle.offsetHeight / 3);
+        // 英文大字
+        elementInOut({
+            childEle: english,
+            cla: 'text-center',
+            limit: LIMIT,
+            fatherEle: specialTitle
+        });
+        // 中文小字
+        elementInOut({
+            childEle: chinese,
+            cla: 'text-center',
+            limit: LIMIT,
+            fatherEle: specialTitle
+        });
+
+        // 获取banner模块
+        let specialFather = document.querySelector('#special .banner-list-area');
+        let specialChilds = document.querySelectorAll('#special .banner-list-area li');
+        const LIMITS = Math.ceil(specialFather.offsetHeight / 6);
+        for (let i = 0; i < specialChilds.length; i++) {
+            elementInOut({
+                childEle: specialChilds[i],
+                cla: 'in-view-show',
+                fatherEle: specialFather,
+                delayCla: 'plate-delay',
+                fadeCla: 'in-view-hide',
+                limit: LIMITS
+            })
+        }
+    }
+
+    // 控制 backtop 模块的淡入淡出
+    function backtopTransition() {
+        const backtop = getEle('#backtop');
+        // 滚动条的滚动距离
+        let scrollTop = document.documentElement.scrollTop;
+        const visibilityHeight = 200;
+        if (scrollTop >= visibilityHeight) {
+            backtop.classList.add('in-view-show');
+        } else {
+            backtop.classList.remove('in-view-show');
         }
     }
 
