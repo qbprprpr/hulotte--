@@ -35,6 +35,10 @@ window.onload = function() {
         downloadTransition();
         // special 展示
         specialTransition();
+        // staff 展示
+        staffTransition();
+        // product 展示
+        productTransition();
         // backtop 展示
         backtopTransition();
 
@@ -67,6 +71,10 @@ window.onload = function() {
         downloadTransition();
         // special 展示
         specialTransition();
+        // staff 展示
+        staffTransition();
+        // product 展示
+        productTransition();
         // backtop 展示
         backtopTransition();
     }));
@@ -357,6 +365,50 @@ window.onload = function() {
                 limit: LIMITS
             })
         }
+    }
+
+    // 控制 staff 模块的淡入淡出
+    function staffTransition() {
+        let staffTitle = getEle('#staffTitle');
+        let english = getEle('#staffTitle .eng');
+        let chinese = getEle('#staffTitle .chinese');
+        const LIMIT = Math.ceil(staffTitle.offsetHeight / 3);
+        // 英文大字
+        elementInOut({
+            childEle: english,
+            cla: 'text-center',
+            limit: LIMIT,
+            fatherEle: staffTitle
+        });
+        // 中文小字
+        elementInOut({
+            childEle: chinese,
+            cla: 'text-center',
+            limit: LIMIT,
+            fatherEle: staffTitle
+        });
+    }
+
+    // 控制 product 模块的淡入淡出
+    function productTransition() {
+        let productTitle = getEle('#productTitle');
+        let english = getEle('#productTitle .eng');
+        let chinese = getEle('#productTitle .chinese');
+        const LIMIT = Math.ceil(productTitle.offsetHeight / 3);
+        // 英文大字
+        elementInOut({
+            childEle: english,
+            cla: 'text-center',
+            limit: LIMIT,
+            fatherEle: productTitle
+        });
+        // 中文小字
+        elementInOut({
+            childEle: chinese,
+            cla: 'text-center',
+            limit: LIMIT,
+            fatherEle: productTitle
+        });
     }
 
     // 控制 backtop 模块的淡入淡出

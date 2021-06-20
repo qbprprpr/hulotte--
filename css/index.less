@@ -12,7 +12,6 @@
 
 html {
     font-size: 24px;
-    opacity: 0.1;
 }
 
 .site {
@@ -1252,6 +1251,258 @@ html {
         }
     }
 
+    // staff模块
+    .staff {
+        margin-top: 3.8rem;
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 2.5rem;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .title .eng {
+            position: absolute;
+            font-family: BalooBhai-Regular;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            color: #000;
+            opacity: 0;
+            transform: scale(1.5);
+            transition: all 0.6s;
+        }
+        .title .eng.text-center {
+            opacity: 0.1;
+            transform: scale(1);
+        }
+
+        .title .chinese {
+            position: absolute;
+            padding-top: 3px;
+            letter-spacing: 11px;
+            text-indent: 11px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateX(-50%);
+            transition: all 0.6s;
+        }
+        .title .chinese.text-center {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .banner-list-area {
+            display: flex;
+            max-width: 1232px;
+            margin-top: 1.5rem;
+            padding: 0 calc((100% - 1232px) / 2);
+        }
+
+        .banner-list-area .scroll-box {
+            margin: 0 auto 4.5rem;
+            width: 75%;
+            height: 8rem;
+            overflow-y: scroll;
+            background: #fff;
+            box-shadow: rgb(16 16 16 / 15%) 0 0 4px;
+            background-size: 12px 12px;
+            background-image: linear-gradient(0deg,#f0f0f0 4%,transparent 4%, transparent 92%,#f0f0f0 4%), linear-gradient(90deg, #f0f0f0 4%, transparent 4%, transparent 92%,#f0f0f0 92%, #f0f0f0 100%);
+        }
+
+        .banner-list-area .diary-list {
+            padding: 1rem;
+        }
+        .diary-list li {
+            display: flex;
+        }
+        .diary-list li:not(:first-child) {
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: rgba(16,16,16,.1) 4px dotted;
+        }
+        .diary-list li i {
+            display: block;
+            width: 2rem;
+            margin-right: 0.5rem;
+        }
+        .diary-list li i svg {
+            fill: #b2deff;
+        }
+        .diary-list li .text .date{
+            font-size: .75rem;
+            font-weight: 700;
+            color: #0066b2;
+        }
+        .diary-list li .text a{
+            font-family: MPLUSRounded1c-Regular;
+            color: #002c4c;
+        }
+    }
+
+    // product模块
+    .product {
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 2.5rem;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .title .eng {
+            position: absolute;
+            font-family: BalooBhai-Regular;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            color: #000;
+            opacity: 0;
+            transform: scale(1.5);
+            transition: all 0.6s;
+        }
+        .title .eng.text-center {
+            opacity: 0.1;
+            transform: scale(1);
+        }
+
+        .title .chinese {
+            position: absolute;
+            padding-top: 3px;
+            letter-spacing: 11px;
+            text-indent: 11px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateX(-50%);
+            transition: all 0.6s;
+        }
+        .title .chinese.text-center {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .spec-cols {
+            display: flex;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            max-width: 1232px;
+            box-sizing: border-box;
+        }
+
+        .spec-cols .primary {
+            width: 64%;
+            margin-right: 1rem;
+        }
+
+        section.in-view {
+            overflow: hidden;
+            margin-top: 1.5rem;
+            border-radius: 0.5rem;
+            background: #fff;
+            box-shadow: rgb(16 16 16 / 15%) 0 0 4px;
+            font-family: Yu Gothic,"游ゴシック","ヒラギノ角ゴ Pro W3",Hiragino Kaku Gothic Pro,"メイリオ",Meiryo,Osaka,sans-serif;
+        }
+
+        section.in-view .in-view-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.1rem 0.5rem;
+            line-height: 2;
+            color: #fff;
+        }
+
+        section.in-view .in-view-title .left {
+            font-family: BalooBhai-Regular;
+        }
+
+        section.in-view .in-view-title .right {
+            font-size: 0.66rem;
+            font-weight: bold;
+        }
+
+        section:nth-child(1) .in-view-title {
+            background-image: linear-gradient(180deg, #8a0 50%, #a0c900 50%);
+        }
+        section:nth-child(2) .in-view-title {
+            background-image: linear-gradient(180deg, #9a4cb2 50%, #a661bc 50%);
+        }
+
+        section:nth-child(3) .in-view-title {
+            background-image: linear-gradient(180deg, #e95371 50%, rgba(233,83,113, 0.5) 50%);
+        }
+
+        section:nth-child(1) table tr th {
+            color: #8a0;
+            border-right: 1px #8a0 solid;
+        }
+        section:nth-child(2) table tr th {
+            color: #9a4cb2;
+            border-right: 1px #9a4cb2 solid;
+        }
+        section:nth-child(3) table tr th {
+            color: #e95371;
+            border-right: 1px #e95371 solid;
+        }
+
+        section.in-view .in-view-content {
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            background-image: linear-gradient(-45deg,transparent 25%, #f9f9f9 25%, #f9f9f9 50%, transparent 50%, transparent 75%, #f9f9f9 75%, #f9f9f9 100%);
+            background-size: 50px 50px;
+        }
+
+        .in-view-content {
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+
+            table tr th {
+                padding: 0.5rem;
+                width: 5.4rem;
+                text-align: right;
+                vertical-align: text-bottom;
+                font-weight: 700;
+            }
+
+            table tr td {
+                padding: 0.5rem;
+            }
+
+            table tr td ul li{
+                display: flex;
+                align-items: flex-start;
+            }
+            table tr td ul li i{
+                padding-right: 0.3rem;
+                padding-top: 0.15rem;
+            }
+            table tr td ul li img {
+                display: block;
+                width: 1rem;
+            }
+        }
+    }
+
+    // footer模块
+    .site-footer {
+        margin-top: 1rem;
+        padding: 1.5rem 0;
+        background-color: #101010;
+
+        .footer-brand {
+            text-align: center;
+        }
+
+        .footer-brand .footer-copyright {
+            margin-top: 0.5rem;
+            font-size: 0.625rem;
+            color: #999;
+        }
+    }
+
+    // background
     .site-bg {
         pointer-events: none;
         position: fixed;
@@ -1267,6 +1518,7 @@ html {
         z-index: -1;
     }
 
+    // loading
     .site-loading {
         position: fixed;
         width: 100%;
